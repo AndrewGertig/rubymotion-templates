@@ -5,7 +5,7 @@ Rubymotion 2.0 introduced the concept of "templates" to create pre-configured de
 
 ## How To use
 
-1. Clone the repository to the RubyMotion local templates directory with `git clone git@github.com:markrickert/rubymotion-templates.git ~/Library/RubyMotion/templates`
+1. Clone the repository to the RubyMotion local templates directory with `git clone git@github.com:markrickert/rubymotion-templates.git ~/Library/RubyMotion/template`
 2. Create your project with a new template! `motion create --template=ProMotion` (the template name is the name of the template folder)
 
 ## How to contribute

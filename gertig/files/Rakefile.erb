@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/ios'
+require 'bundler'
+
+Bundler.setup
+Bundler.require
+
+Motion::Project::App.setup do |app|
+  # Use `rake config' to see complete project settings.
+  app.name = '<%= name %>'
+  app.prerendered_icon = true # Don't put gloss on it
+  app.deployment_target = "6.0"
+  app.device_family = [:iphone] # [:iphone, :ipad]
+  # app.interface_orientations = [:portrait]
+  app.identifier = "com.my-domain.<%= name %>}"
+  app.version = "0.0.1"
+  # app.short_version = "0.1.0"
+  app.frameworks += %w(AVFoundation) 
+  # += adds these frameworks to the array of frameworks.
+  # Ex: CoreAudio CoreMotion CoreVideo CoreMedia ImageIO QuartzCore AudioToolbox 
+
+  # Debug for promotion
+  app.detect_dependencies = false
+
+    # Cocoapods
+  app.pods do
+    pod 'SIAlertView' # Cool looking Alert with blocks
+    pod 'TSMessages' # Slide-down messages ala Tweetbot https://github.com/toursprung/TSMessages
+    # pod 'SDWebImage' #Required to load in remote images with ProMotion
+    # pod 'FlurrySDK' # Analytics
+    # pod 'Appirater' # Prompt users to rate the app after X days
+  end
+
+  app.development do
+    app.entitlements['get-task-allow'] = true
+    app.codesign_certificate = "iPhone Developer: Andrew Gertig (CY6MJV42S8)"
+    app.provisioning_profile = "./provisioning/iOS_Team_Provisioning_Profile.mobileprovision"
+  end
+
+  app.release do
+    app.entitlements['get-task-allow'] = false
+    app.codesign_certificate = ""
+    app.provisioning_profile = "./provisioning/<%= name %>.mobileprovision"
+  end
+
+end
