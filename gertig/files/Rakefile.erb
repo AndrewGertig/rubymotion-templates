@@ -13,7 +13,7 @@ Motion::Project::App.setup do |app|
   app.deployment_target = "6.0"
   app.device_family = [:iphone] # [:iphone, :ipad]
   # app.interface_orientations = [:portrait]
-  app.identifier = "com.my-domain.<%= name %>}"
+  app.identifier = "com.my-domain.<%= name %>"
   app.version = "0.0.1"
   # app.short_version = "0.1.0"
   app.frameworks += %w(AVFoundation) 
@@ -21,7 +21,7 @@ Motion::Project::App.setup do |app|
   # Ex: CoreAudio CoreMotion CoreVideo CoreMedia ImageIO QuartzCore AudioToolbox 
 
   # Debug for promotion
-  app.detect_dependencies = false
+  # app.detect_dependencies = false
 
     # Cocoapods
   app.pods do
